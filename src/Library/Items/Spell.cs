@@ -1,20 +1,10 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Spell
+public class Spell: Iitems //cambiar pq esto va en spellbook
 {
-    public int AttackValue
-    {
-        get
-        {
-            return 70;
-        }
-    }
-
-    public int DefenseValue
-    {
-        get
-        {
-            return 70;
-        }
-    }
+    public string Name => "Spell";
+    public int AttackValue => 70 ;
+    public int DefenseValue => 70;
+    public int HealingValue => 0;
+   
 }

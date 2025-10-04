@@ -1,12 +1,10 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Axe
+public class Axe: Iitems
 {
-    public int AttackValue 
-    {
-        get
-        {
-            return 25;
-        } 
-    }
+    public string Name => "Axe";
+    public int AttackValue => 25 ;
+    public int DefenseValue => 0;
+    public int HealingValue => 0;
+   
 }

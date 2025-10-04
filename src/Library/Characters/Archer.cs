@@ -1,16 +1,16 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Archer
+public class Archer: ICombatant
 {
-    private int health = 100;
 
     public Archer(string name)
     {
         this.Name = name;
+        this.Health = InitialHealth;
     }
 
     public string Name { get; set; }
-    
+
     public Bow Bow { get; set; }
 
     public Helmet Helmet { get; set; }
@@ -35,11 +35,11 @@ public class Archer
     {
         get
         {
-            return this.health;
+            return this.Health;
         }
-        private set
+        set
         {
-            this.health = value < 0 ? 0 : value;
+            this.Health = value < 0 ? 0 : value;
         }
     }
 
@@ -54,5 +54,20 @@ public class Archer
     public void Cure()
     {
         this.Health = 100;
+    }
+       public int InitialHealth { get; } = 100;
+
+    public void Attack(ICombatant target) //Allows this character to attack
+    {
+        target.ReceiveAttack(this.AttackValue);
+    }
+
+    public void GetHealed()
+    {
+        this.Health = this.InitialHealth;
+    }
+    public void HealOthers(ICombatant target) //Allows healing others
+    {
+        target.GetHealed();
     }
 }

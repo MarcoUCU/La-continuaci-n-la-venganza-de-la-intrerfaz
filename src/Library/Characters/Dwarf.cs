@@ -1,12 +1,12 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Dwarf
+public class Dwarf : ICombatant
 {
-    private int health = 100;
 
     public Dwarf(string name)
     {
         this.Name = name;
+        this.Health = InitialHealth;
     }
 
     public string Name { get; set; }
@@ -37,14 +37,20 @@ public class Dwarf
     {
         get
         {
-            return this.health;
+            return this.Health;
         }
-        private set
+
+        set
         {
-            this.health = value < 0 ? 0 : value;
+            this.Health = value < 0 ? 0 : value;
         }
     }
+   public int InitialHealth { get; } = 100;
 
+    public void Attack(ICombatant target) //Allows this character to attack
+    {
+        target.ReceiveAttack(this.AttackValue);
+    }
     public void ReceiveAttack(int power)
     {
         if (this.DefenseValue < power)
@@ -53,8 +59,14 @@ public class Dwarf
         }
     }
 
-    public void Cure()
+    public void GetHealed()
     {
-        this.Health = 100;
+        this.Health = this.InitialHealth;
     }
+    public void HealOthers(ICombatant target) //Allows healing others
+    {
+        target.GetHealed();
+    }
+    
+    
 }

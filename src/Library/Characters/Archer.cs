@@ -1,5 +1,10 @@
 namespace Ucu.Poo.RoleplayGame;
-
+/// <summary>
+/// Representa un Archer que implementa ICombatant para definir acciones comunes de combate.
+/// 
+/// SRP: Esta clase solo maneja los comportamientos específicos de archers
+/// Expert: Archer es experto en su propia información (vida, armas)
+/// </summary>
 public class Archer: ICombatant
 {
 

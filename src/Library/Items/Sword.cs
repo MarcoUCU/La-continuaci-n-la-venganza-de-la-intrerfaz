@@ -1,10 +1,17 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Sword: Iitems
+public class Sword : Iitems
 {
-    public string Name => "Sword";
-    public int AttackValue => 20 ;
-    public int DefenseValue => 0;
-    public int HealingValue => 0;
-   
+    public string Name { get; set; }
+    public int AttackValue { get; set; }
+    public int DefenseValue { get; set; }
+    public int HealingValue { get; set; }
+
+    public Sword()
+    {
+        Name = "Sword";
+        AttackValue = 20;
+        DefenseValue = 0;
+        HealingValue = 0;
+    }
 }

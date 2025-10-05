@@ -1,5 +1,10 @@
 namespace Ucu.Poo.RoleplayGame;
-
+/// <summary>
+/// Representa un Dwarf que implementa ICombatant para definir acciones comunes de combate.
+/// 
+/// SRP: Esta clase solo maneja los comportamientos específicos de dwarfs
+/// Expert: Dwarf es experto en su propia información (vida, armas)
+/// </summary>
 public class Dwarf : ICombatant
 {
 

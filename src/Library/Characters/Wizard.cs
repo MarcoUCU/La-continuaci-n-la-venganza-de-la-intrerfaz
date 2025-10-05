@@ -1,5 +1,11 @@
 namespace Ucu.Poo.RoleplayGame;
-
+/// <summary>
+/// Representa un Wizard que implementa ICombatant para definir acciones comunes de combate.
+/// 
+/// SRP: Esta clase solo maneja los comportamientos específicos de wizards
+/// Expert: Wizard es experto en su propia información (vida, spells)
+/// 
+/// </summary>
 public class Wizard: ICombatant
 {
 

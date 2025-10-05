@@ -31,15 +31,16 @@ public class Archer: ICombatant
         }
     }
 
+    private int health;
     public int Health
     {
         get
         {
-            return this.Health;
+            return this.health;
         }
         set
         {
-            this.Health = value < 0 ? 0 : value;
+            this.health = value < 0 ? 0 : value;
         }
     }
 

@@ -19,7 +19,7 @@ gimli.ReceiveAttack(gandalf.AttackValue);
 
 Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
 
-gimli.Cure();
+gimli.GetHealed(); //cambiamos el main original porque habíamos usado un identificador distinto
 
 Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
 

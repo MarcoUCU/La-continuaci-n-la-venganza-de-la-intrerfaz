@@ -1,18 +1,10 @@
 namespace Ucu.Poo.RoleplayGame;
 
-    public class Spell : Iitems
-    {
-        public string Name { get; set; }
-        public int AttackValue { get; set; }
-        public int DefenseValue { get; set; }
-        public int HealingValue { get; set; }
-
-        public Spell()
-        {
-            Name = "Spell";
-            AttackValue = 70;
-            DefenseValue = 70;
-            HealingValue = 0;
-        }
-    }
+public class Spell
+{
+    public string Name => "Spell";
+    public int AttackValue => 70 ;
+    public int DefenseValue => 70;
+    public int HealingValue => 0;
+   
 }

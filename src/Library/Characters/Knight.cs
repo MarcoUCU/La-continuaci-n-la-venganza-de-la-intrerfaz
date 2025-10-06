@@ -12,6 +12,9 @@ public class Knight : ICombatant
     {
         this.Name = name;
         this.Health = InitialHealth;
+        this.Sword = new Sword();
+        this.Shield = new Shield();
+        this.Armor = new Armor();
     }
 
 
@@ -59,11 +62,7 @@ public class Knight : ICombatant
             this.Health -= power - this.DefenseValue;
         }
     }
-
-    public void Cure()
-    {
-        this.Health = 100;
-    }
+    
     public int InitialHealth { get; } = 100;
 
     public void Attack(ICombatant target) //Allows this character to attack

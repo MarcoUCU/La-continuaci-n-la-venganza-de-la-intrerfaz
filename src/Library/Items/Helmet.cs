@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-    public class Helmet : Iitems
+    public class Helmet : IItem
     {
         public string Name { get; set; }
         public int AttackValue { get; set; }

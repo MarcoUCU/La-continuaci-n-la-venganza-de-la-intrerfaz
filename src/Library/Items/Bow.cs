@@ -2,7 +2,7 @@ using System.Dynamic;
 
 namespace Ucu.Poo.RoleplayGame;
 
-public class Bow : Iitems
+public class Bow : IItem
 {
     public string Name { get; set; }
     public int AttackValue { get; set; }

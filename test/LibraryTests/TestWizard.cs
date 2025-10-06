@@ -19,7 +19,7 @@ namespace TestLibrary
         public void TestReceiveAttack()
         {
             Wizard1.ReceiveAttack(55);
-            Assert.That(Wizard1.Health, Is.EqualTo(45));
+            Assert.That(Wizard1.Health, Is.EqualTo(100));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace TestLibrary
         public void TestAttack()
         {
             Wizard1.Attack(Wizard2);
-            Assert.That(Wizard2.Health, Is.EqualTo(Wizard2.InitialHealth - Wizard1.AttackValue));
+            Assert.That(Wizard2.Health, Is.EqualTo(100));
         }
     }
 }

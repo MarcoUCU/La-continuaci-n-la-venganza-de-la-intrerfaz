@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Armor: Iitems
+public class Armor: IItem
 {
     public string Name => "Armor";
     public int AttackValue => 0 ;

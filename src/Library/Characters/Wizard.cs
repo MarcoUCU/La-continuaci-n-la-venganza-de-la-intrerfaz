@@ -13,6 +13,11 @@ public class Wizard: ICombatant
     {
         this.Name = name;
         this.Health = InitialHealth;
+        this.Staff = new Staff();
+        this.SpellsBook = new SpellsBook
+        {
+            Spells = new Spell[] { new Spell() } // un  spell por defecto
+        };
     }
 
     public string Name { get; set; }
@@ -57,11 +62,7 @@ public class Wizard: ICombatant
             this.Health -= power - this.DefenseValue;
         }
     }
-
-    public void Cure()
-    {
-        this.Health = 100;
-    }
+    
     public int InitialHealth { get; } = 100;
 
     public void Attack(ICombatant target) //Allows this character to attack

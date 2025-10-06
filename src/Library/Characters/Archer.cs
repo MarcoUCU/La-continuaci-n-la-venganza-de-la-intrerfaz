@@ -12,6 +12,8 @@ public class Archer: ICombatant
     {
         this.Name = name;
         this.Health = InitialHealth;
+        this.Bow = new Bow();     
+        this.Helmet = new Helmet();
     }
 
     public string Name { get; set; }
@@ -56,12 +58,8 @@ public class Archer: ICombatant
             this.Health -= power - this.DefenseValue;
         }
     }
-
-    public void Cure()
-    {
-        this.Health = 100;
-    }
-       public int InitialHealth { get; } = 100;
+    
+    public int InitialHealth { get; } = 100;
 
     public void Attack(ICombatant target) //Allows this character to attack
     {

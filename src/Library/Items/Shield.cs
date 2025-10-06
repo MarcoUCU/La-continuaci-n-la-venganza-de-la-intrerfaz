@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Shield : Iitems
+public class Shield : IItem
 {
     public string Name { get; set; }
     public int AttackValue { get; set; }

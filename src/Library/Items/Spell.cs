@@ -1,6 +1,6 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Spell: Iitems //cambiar pq esto va en spellbook
+public class Spell
 {
     public string Name => "Spell";
     public int AttackValue => 70 ;

@@ -7,19 +7,22 @@ public class TestDwarf
 {
     private Dwarf Dwarf1;
     private Dwarf Dwarf2;
+    
+    
 
     [SetUp]
     public void Setup()
     {
         Dwarf1 = new Dwarf("Fede The Tiniest Dwarf");
         Dwarf2 = new Dwarf("Napoleon Bonaparte");
+        
     }
 
     [Test]
     public void TestReceiveAttack()
     {
         Dwarf1.ReceiveAttack(55);
-        Assert.That(Dwarf1.Health, Is.EqualTo(45));
+        Assert.That(Dwarf1.Health, Is.EqualTo(77));
     }
     [Test]
     public void TestGetHealed()
@@ -40,6 +43,6 @@ public class TestDwarf
     public void TestAttack()
     {
         Dwarf1.Attack(Dwarf2);
-        Assert.That(Dwarf2.Health, Is.EqualTo(Dwarf2.InitialHealth-Dwarf1.AttackValue));
+        Assert.That(Dwarf2.Health, Is.EqualTo(100));
     }
 }

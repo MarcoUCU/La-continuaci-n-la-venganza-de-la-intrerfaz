@@ -7,6 +7,9 @@ public class Dwarf : ICombatant
     {
         this.Name = name;
         this.Health = InitialHealth;
+        this.Axe = new Axe();
+        this.Helmet = new Helmet();
+        this.Shield = new Shield();
     }
 
     public string Name { get; set; }

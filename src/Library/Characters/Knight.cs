@@ -7,6 +7,9 @@ public class Knight : ICombatant
     {
         this.Name = name;
         this.Health = InitialHealth;
+        this.Sword = new Sword();
+        this.Shield = new Shield();
+        this.Armor = new Armor();
     }
 
 

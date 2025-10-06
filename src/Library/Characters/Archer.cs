@@ -7,6 +7,8 @@ public class Archer: ICombatant
     {
         this.Name = name;
         this.Health = InitialHealth;
+        this.Bow = new Bow();     
+        this.Helmet = new Helmet();
     }
 
     public string Name { get; set; }

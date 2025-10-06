@@ -22,7 +22,7 @@ public class Archer: ICombatant
 
     public Helmet Helmet { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque de el arco
     {
         get
         {
@@ -30,7 +30,7 @@ public class Archer: ICombatant
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa del casco
     {
         get
         {

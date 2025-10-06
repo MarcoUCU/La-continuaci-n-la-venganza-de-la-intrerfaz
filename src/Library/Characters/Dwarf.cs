@@ -25,7 +25,7 @@ public class Dwarf : ICombatant
 
     public Helmet Helmet { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque del axe
     {
         get
         {
@@ -33,7 +33,7 @@ public class Dwarf : ICombatant
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa sumando el poder del casco y el escudo
     {
         get
         {

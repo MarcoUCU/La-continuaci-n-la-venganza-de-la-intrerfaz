@@ -16,7 +16,7 @@ public class Wizard: ICombatant
         this.Staff = new Staff();
         this.SpellsBook = new SpellsBook
         {
-            Spells = new Spell[] { new Spell() } // un  spell por defecto
+            Spells = new Spell[] { new Spell() } // un spell por defecto
         };
     }
 
@@ -26,7 +26,7 @@ public class Wizard: ICombatant
 
     public Staff Staff { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque sumando el poder del libro y el baston
     {
         get
         {
@@ -34,7 +34,7 @@ public class Wizard: ICombatant
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa sumando el poder del libro y el baston
     {
         get
         {

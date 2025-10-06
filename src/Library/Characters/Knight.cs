@@ -26,7 +26,7 @@ public class Knight : ICombatant
 
     public Armor Armor { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque de la espada
     {
         get
         {
@@ -34,7 +34,7 @@ public class Knight : ICombatant
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa sumando el poder de la armadura y el escudo
     {
         get
         {

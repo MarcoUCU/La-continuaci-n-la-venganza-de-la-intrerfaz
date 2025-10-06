@@ -15,4 +15,3 @@ namespace Ucu.Poo.RoleplayGame;
             HealingValue = 0;
         }
     }
-}

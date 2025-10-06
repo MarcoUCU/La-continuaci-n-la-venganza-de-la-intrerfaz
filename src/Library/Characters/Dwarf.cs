@@ -1,12 +1,20 @@
 namespace Ucu.Poo.RoleplayGame;
-
-public class Dwarf
+/// <summary>
+/// Representa un Dwarf que implementa ICombatant para definir acciones comunes de combate.
+/// 
+/// SRP: Esta clase solo maneja los comportamientos específicos de dwarfs
+/// Expert: Dwarf es experto en su propia información (vida, armas)
+/// </summary>
+public class Dwarf : ICombatant
 {
-    private int health = 100;
 
     public Dwarf(string name)
     {
         this.Name = name;
+        this.Health = InitialHealth;
+        this.Axe = new Axe();
+        this.Helmet = new Helmet();
+        this.Shield = new Shield();
     }
 
     public string Name { get; set; }
@@ -17,7 +25,7 @@ public class Dwarf
 
     public Helmet Helmet { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque del axe
     {
         get
         {
@@ -25,7 +33,7 @@ public class Dwarf
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa sumando el poder del casco y el escudo
     {
         get
         {
@@ -33,18 +41,25 @@ public class Dwarf
         }
     }
 
+    private int health;
     public int Health
     {
         get
         {
             return this.health;
         }
-        private set
+
+        set
         {
             this.health = value < 0 ? 0 : value;
         }
     }
+   public int InitialHealth { get; } = 100;
 
+    public void Attack(ICombatant target) //Allows this character to attack
+    {
+        target.ReceiveAttack(this.AttackValue);
+    }
     public void ReceiveAttack(int power)
     {
         if (this.DefenseValue < power)
@@ -53,8 +68,14 @@ public class Dwarf
         }
     }
 
-    public void Cure()
+    public void GetHealed()
     {
-        this.Health = 100;
+        this.Health = this.InitialHealth;
     }
+    public void HealOthers(ICombatant target) //Allows healing others
+    {
+        target.GetHealed();
+    }
+    
+    
 }

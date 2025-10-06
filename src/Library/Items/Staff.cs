@@ -1,20 +1,19 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Staff
-{
-    public int AttackValue 
+    public class Staff : IItem
     {
-        get
-        {
-            return 100;
-        } 
-    }
+        public string Name { get; set; }
+        public int AttackValue { get; set; }
+        public int DefenseValue { get; set; }
+        public int HealingValue { get; set; }
 
-    public int DefenseValue
-    {
-        get
+        public Staff()
         {
-            return 100;
+            Name = "Staff";
+            AttackValue = 100;
+            DefenseValue = 100;
+            HealingValue = 0;
         }
     }
-}
+
+

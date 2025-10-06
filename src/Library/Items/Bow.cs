@@ -1,12 +1,19 @@
+using System.Dynamic;
+
 namespace Ucu.Poo.RoleplayGame;
 
-public class Bow
+public class Bow : IItem
 {
-    public int AttackValue 
+    public string Name { get; set; }
+    public int AttackValue { get; set; }
+    public int DefenseValue { get; set; }
+    public int HealingValue { get; set; }
+
+    public Bow()
     {
-        get
-        {
-            return 15;
-        } 
+        Name = "Bow";
+        AttackValue = 15;
+        DefenseValue = 0;
+        HealingValue = 0;
     }
 }

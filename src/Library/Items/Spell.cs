@@ -1,20 +1,17 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Spell
-{
-    public int AttackValue
+    public class Spell 
     {
-        get
-        {
-            return 70;
-        }
-    }
+        public string Name { get; set; }
+        public int AttackValue { get; set; }
+        public int DefenseValue { get; set; }
+        public int HealingValue { get; set; }
 
-    public int DefenseValue
-    {
-        get
+        public Spell()
         {
-            return 70;
+            Name = "Spell";
+            AttackValue = 70;
+            DefenseValue = 70;
+            HealingValue = 0;
         }
     }
-}

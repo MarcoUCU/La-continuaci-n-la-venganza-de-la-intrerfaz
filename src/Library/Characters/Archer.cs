@@ -1,21 +1,28 @@
 namespace Ucu.Poo.RoleplayGame;
-
-public class Archer
+/// <summary>
+/// Representa un Archer que implementa ICombatant para definir acciones comunes de combate.
+/// 
+/// SRP: Esta clase solo maneja los comportamientos específicos de archers
+/// Expert: Archer es experto en su propia información (vida, armas)
+/// </summary>
+public class Archer: ICombatant
 {
-    private int health = 100;
 
     public Archer(string name)
     {
         this.Name = name;
+        this.Health = InitialHealth;
+        this.Bow = new Bow();     
+        this.Helmet = new Helmet();
     }
 
     public string Name { get; set; }
-    
+
     public Bow Bow { get; set; }
 
     public Helmet Helmet { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque de el arco
     {
         get
         {
@@ -23,7 +30,7 @@ public class Archer
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa del casco
     {
         get
         {
@@ -31,13 +38,14 @@ public class Archer
         }
     }
 
+    private int health;
     public int Health
     {
         get
         {
             return this.health;
         }
-        private set
+        set
         {
             this.health = value < 0 ? 0 : value;
         }
@@ -50,9 +58,20 @@ public class Archer
             this.Health -= power - this.DefenseValue;
         }
     }
+    
+    public int InitialHealth { get; } = 100;
 
-    public void Cure()
+    public void Attack(ICombatant target) //Allows this character to attack
     {
-        this.Health = 100;
+        target.ReceiveAttack(this.AttackValue);
+    }
+
+    public void GetHealed()
+    {
+        this.Health = this.InitialHealth;
+    }
+    public void HealOthers(ICombatant target) //Allows healing others
+    {
+        target.GetHealed();
     }
 }

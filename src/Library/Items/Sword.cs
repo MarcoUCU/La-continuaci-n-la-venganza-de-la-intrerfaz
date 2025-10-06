@@ -1,12 +1,17 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Sword
+public class Sword : IItem
 {
-    public int AttackValue 
+    public string Name { get; set; }
+    public int AttackValue { get; set; }
+    public int DefenseValue { get; set; }
+    public int HealingValue { get; set; }
+
+    public Sword()
     {
-        get
-        {
-            return 20;
-        } 
+        Name = "Sword";
+        AttackValue = 20;
+        DefenseValue = 0;
+        HealingValue = 0;
     }
 }

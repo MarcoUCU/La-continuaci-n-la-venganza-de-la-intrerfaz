@@ -1,12 +1,23 @@
 namespace Ucu.Poo.RoleplayGame;
-
-public class Wizard
+/// <summary>
+/// Representa un Wizard que implementa ICombatant para definir acciones comunes de combate.
+/// 
+/// SRP: Esta clase solo maneja los comportamientos específicos de wizards
+/// Expert: Wizard es experto en su propia información (vida, spells)
+/// 
+/// </summary>
+public class Wizard: ICombatant
 {
-    private int health = 100;
 
     public Wizard(string name)
     {
         this.Name = name;
+        this.Health = InitialHealth;
+        this.Staff = new Staff();
+        this.SpellsBook = new SpellsBook
+        {
+            Spells = new Spell[] { new Spell() } // un spell por defecto
+        };
     }
 
     public string Name { get; set; }
@@ -15,7 +26,7 @@ public class Wizard
 
     public Staff Staff { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque sumando el poder del libro y el baston
     {
         get
         {
@@ -23,7 +34,7 @@ public class Wizard
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa sumando el poder del libro y el baston
     {
         get
         {
@@ -31,13 +42,14 @@ public class Wizard
         }
     }
 
+    private int health;
     public int Health
     {
         get
         {
             return this.health;
         }
-        private set
+        set
         {
             this.health = value < 0 ? 0 : value;
         }
@@ -50,9 +62,20 @@ public class Wizard
             this.Health -= power - this.DefenseValue;
         }
     }
+    
+    public int InitialHealth { get; } = 100;
 
-    public void Cure()
+    public void Attack(ICombatant target) //Allows this character to attack
     {
-        this.Health = 100;
+        target.ReceiveAttack(this.AttackValue);
     }
+    public void GetHealed()
+    {
+        this.Health = this.InitialHealth;
+    }
+    public void HealOthers(ICombatant target) //Allows healing others
+    {
+        target.GetHealed();
+    }
+
 }

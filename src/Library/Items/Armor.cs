@@ -1,12 +1,17 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class Armor
+public class Armor : IItem
 {
-    public int DefenseValue
+    public string Name { get; set; }
+    public int AttackValue { get; set; }
+    public int DefenseValue { get; set; }
+    public int HealingValue { get; set; }
+
+    public Armor()
     {
-        get
-        {
-            return 25;
-        }
+        Name = "Armor";
+        AttackValue = 0;
+        DefenseValue = 25;
+        HealingValue = 0;
     }
 }

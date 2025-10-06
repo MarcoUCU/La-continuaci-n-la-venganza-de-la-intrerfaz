@@ -1,13 +1,22 @@
 namespace Ucu.Poo.RoleplayGame;
-
-public class Knight
+/// <summary>
+/// Representa un Knight que implementa ICombatant para definir acciones comunes de combate.
+/// 
+/// SRP: Esta clase solo maneja los comportamientos específicos de knights
+/// Expert: Knight es experto en su propia información (vida, armas)
+/// </summary>
+public class Knight : ICombatant
 {
-    private int health = 100;
 
     public Knight(string name)
     {
         this.Name = name;
+        this.Health = InitialHealth;
+        this.Sword = new Sword();
+        this.Shield = new Shield();
+        this.Armor = new Armor();
     }
+
 
     public string Name { get; set; }
 
@@ -17,7 +26,7 @@ public class Knight
 
     public Armor Armor { get; set; }
 
-    public int AttackValue
+    public int AttackValue // Obtiene el valor total de ataque de la espada
     {
         get
         {
@@ -25,7 +34,7 @@ public class Knight
         }
     }
 
-    public int DefenseValue
+    public int DefenseValue // Obtiene el valor total de defensa sumando el poder de la armadura y el escudo
     {
         get
         {
@@ -33,13 +42,14 @@ public class Knight
         }
     }
 
+    private int health;
     public int Health
     {
         get
         {
             return this.health;
         }
-        private set
+        set
         {
             this.health = value < 0 ? 0 : value;
         }
@@ -52,9 +62,20 @@ public class Knight
             this.Health -= power - this.DefenseValue;
         }
     }
+    
+    public int InitialHealth { get; } = 100;
 
-    public void Cure()
+    public void Attack(ICombatant target) //Allows this character to attack
     {
-        this.Health = 100;
+        target.ReceiveAttack(this.AttackValue);
     }
+    public void GetHealed()
+    {
+        this.Health = this.InitialHealth;
+    }
+    public void HealOthers(ICombatant target) //Allows healing others
+    {
+        target.GetHealed();
+    }
+
 }
